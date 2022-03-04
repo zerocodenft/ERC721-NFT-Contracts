@@ -20,7 +20,7 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
-contract RebelCartel is ERC721, Ownable {
+contract DelayedWaves is ERC721, Ownable {
     using Counters for Counters.Counter;
     using Strings for uint;
     enum SalesWave{ PAUSED, WAVE1, WAVE2, WAVE3 }
