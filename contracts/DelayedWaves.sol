@@ -61,6 +61,7 @@ contract RebelCartel is ERC721, Ownable {
 
     /// @notice Reveal metadata per wave
     function reveal(SalesWave wave, string memory uri) external onlyOwner {
+        require(wave != SalesWave.PAUSED, "Invalid wave");
         _revealURLs[wave] = uri;
     }
 
@@ -68,8 +69,7 @@ contract RebelCartel is ERC721, Ownable {
         return _tokenIds.current();
     }
 
-    /// @notice Update current sale stage
-    function setSaleStatus(SalesWave wave) external onlyOwner {
+    function setWave(SalesWave wave) external onlyOwner {
         saleWave = wave;
     }
 
@@ -96,8 +96,8 @@ contract RebelCartel is ERC721, Ownable {
 
         if(tokenId > WAVE1_LIMIT) {
             wave = SalesWave.WAVE2;
-        }
-        if(tokenId > WAVE2_LIMIT) {
+        } 
+        else if(tokenId > WAVE2_LIMIT) {
             wave = SalesWave.WAVE3;
         }
 
