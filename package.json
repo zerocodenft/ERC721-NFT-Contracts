@@ -1,0 +1,41 @@
+{
+  "name": "erc721-nft-contracts",
+  "version": "1.0.0",
+  "description": "Various NFT contracts",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zerocodenft/ERC721-NFT-Contracts.git"
+  },
+  "keywords": [
+    "nft",
+    "smartcontract",
+    "erc721",
+    "crypro",
+    "blockchain"
+  ],
+  "author": "Ihor Bodnarchuk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zerocodenft/ERC721-NFT-Contracts/issues"
+  },
+  "homepage": "https://github.com/zerocodenft/ERC721-NFT-Contracts#readme",
+  "dependencies": {
+    "ethers": "^5.5.4"
+  },
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.2",
+    "@nomiclabs/hardhat-etherscan": "^3.0.1",
+    "@nomiclabs/hardhat-waffle": "^2.0.1",
+    "@openzeppelin/contracts": "^4.3.2",
+    "chai": "^4.3.4",
+    "dotenv": "^16.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "ethereum-waffle": "^3.4.0",
+    "hardhat": "^2.6.8",
+    "prettier": "^2.3.2"
+  }
+}
