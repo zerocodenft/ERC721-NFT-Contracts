@@ -37,12 +37,10 @@ contract DelayedWaves is ERC721, Ownable {
     uint public constant WAVE3_LIMIT = 4725;
 
     SalesWave public saleWave = SalesWave.PAUSED;
-    string private _baseURL;
     string private _hiddenURI;
     address private immutable _beneficiary;
     mapping(SalesWave => WavePriceLimit) private _wavePrice;
     mapping(SalesWave => string) private _revealURLs;
-    //mapping(address => uint) private _mintedCount;
 
     constructor(string memory hiddenUri_, address beneficiary_) 
     ERC721("DelayedWaves", "DW"){
@@ -111,14 +109,13 @@ contract DelayedWaves is ERC721, Ownable {
     
     function mint(uint count) external payable {
         require(saleWave != SalesWave.PAUSED, "ZeroCodeNFT: Sales are off");
+        require(count <= TOKENS_PER_TRAN_LIMIT, "ZeroCodeNFT: Requested token count exceeds allowance (2)");
 
         WavePriceLimit memory data = _wavePrice[saleWave];
 
-        require(count <= TOKENS_PER_TRAN_LIMIT, "ZeroCodeNFT: Requested token count exceeds allowance (2)");
         require(_tokenIds.current() + count <= data.limit, "ZeroCodeNFT: Number of requested tokens will exceed limit");
         require(msg.value >= count * data.price, "ZeroCodeNFT: Ether value sent is not sufficient");
 
-        // _mintedCount[msg.sender] += count;
         _mintTokens(msg.sender, count);
     }
 
